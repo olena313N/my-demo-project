@@ -14,16 +14,13 @@ test.describe('Perform login: looking for products..', () => {
 
     await expect(page).toHaveURL('/inventory.html');
     await expect(page.getByTestId('title')).toHaveText('Products');
-    await expect(page.getByTestId('inventory-item')).toHaveCount(6);
-    
-   
+    await expect(page.getByTestId('inventory-item')).toHaveCount(6);  
   });
 
 
 
   test('First product should be added to the cart  ', async ({ page }) => {
-
-    
+ 
     await page.getByTestId('add-to-cart-sauce-labs-backpack').click();
     await expect(page.getByTestId('shopping-cart-badge')).toHaveText('1');
 
@@ -32,8 +29,6 @@ test.describe('Perform login: looking for products..', () => {
 
     await page.getByTestId('remove-sauce-labs-backpack').click();
     await expect(page.getByTestId('inventory-item')).toHaveCount(0);;
-
-
   });
 
 });
